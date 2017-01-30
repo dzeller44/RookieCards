@@ -1,0 +1,10 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(C:\WebDev\workspace\RookieCards\conf\application.conf,C:\WebDev\workspace\RookieCards\target\scala-2.10\classes\application.conf)[0m
+[0m[[0mdebug[0m] [0m	(C:\WebDev\workspace\RookieCards\conf\cloudbees.conf,C:\WebDev\workspace\RookieCards\target\scala-2.10\classes\cloudbees.conf)[0m
+[0m[[0mdebug[0m] [0m	(C:\WebDev\workspace\RookieCards\conf\evolutions,C:\WebDev\workspace\RookieCards\target\scala-2.10\classes\evolutions)[0m
+[0m[[0mdebug[0m] [0m	(C:\WebDev\workspace\RookieCards\conf\mail.conf.example,C:\WebDev\workspace\RookieCards\target\scala-2.10\classes\mail.conf.example)[0m
+[0m[[0mdebug[0m] [0m	(C:\WebDev\workspace\RookieCards\conf\messages.en,C:\WebDev\workspace\RookieCards\target\scala-2.10\classes\messages.en)[0m
+[0m[[0mdebug[0m] [0m	(C:\WebDev\workspace\RookieCards\conf\play.plugins,C:\WebDev\workspace\RookieCards\target\scala-2.10\classes\play.plugins)[0m
+[0m[[0mdebug[0m] [0m	(C:\WebDev\workspace\RookieCards\conf\routes,C:\WebDev\workspace\RookieCards\target\scala-2.10\classes\routes)[0m
+[0m[[0mdebug[0m] [0m	(C:\WebDev\workspace\RookieCards\conf\evolutions\default,C:\WebDev\workspace\RookieCards\target\scala-2.10\classes\evolutions\default)[0m
+[0m[[0mdebug[0m] [0m	(C:\WebDev\workspace\RookieCards\conf\evolutions\default\1.sql,C:\WebDev\workspace\RookieCards\target\scala-2.10\classes\evolutions\default\1.sql)[0m
