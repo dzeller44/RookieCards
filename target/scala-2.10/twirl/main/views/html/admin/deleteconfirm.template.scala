@@ -79,7 +79,7 @@ Seq[Any](format.raw/*1.14*/("""
 object deleteconfirm extends deleteconfirm_Scope0.deleteconfirm
               /*
                   -- GENERATED --
-                  DATE: Mon Jan 30 13:46:16 MST 2017
+                  DATE: Mon Jan 30 15:32:15 MST 2017
                   SOURCE: C:/WebDev/workspace/RookieCards/app/views/admin/deleteconfirm.scala.html
                   HASH: a9db444a4178f0869d159f86b3f69db67c43caac
                   MATRIX: 765->1|872->13|902->18|920->28|959->30|988->33|1631->649|1644->653|1676->664|1705->665|1900->833|1913->837|1945->848|1974->849|2261->1109|2300->1127|2447->1244

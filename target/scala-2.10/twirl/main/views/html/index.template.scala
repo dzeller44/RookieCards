@@ -63,7 +63,7 @@ Seq[Any](format.raw/*1.78*/("""
 object index extends index_Scope0.index
               /*
                   -- GENERATED --
-                  DATE: Mon Jan 30 13:46:16 MST 2017
+                  DATE: Mon Jan 30 15:32:15 MST 2017
                   SOURCE: C:/WebDev/workspace/RookieCards/app/views/index.scala.html
                   HASH: ca67e0936b64f2b0b59b13ab09d75c03bf4433c4
                   MATRIX: 789->1|960->77|988->80|1006->90|1045->92|1073->94

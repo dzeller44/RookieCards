@@ -7,7 +7,7 @@ function filterCardSearch(fieldName, filterType) {
 	var e = document.getElementById(fieldName);
 	var fieldValue = e.options[e.selectedIndex].value;
 	console.log(fieldName + " Field Value = " + fieldValue);
-	window.location.href = "/filtercardsearch?type=" + filterType + "&value=" + fieldValue;	
+	window.location.href = "/filtersearch?type=" + filterType + "&value=" + fieldValue;	
 }
 
 function searchCards() {

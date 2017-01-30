@@ -4,9 +4,11 @@ import static play.data.Form.form;
 
 import java.awt.Desktop;
 import java.io.FileWriter;
+import java.io.UnsupportedEncodingException;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -617,6 +619,12 @@ public class Application extends Controller {
 		if (value.equals("All")) {
 			cardList = Card.find.all();
 		} else {
+			// Decode the value, just in case...
+			try {
+				value = URLDecoder.decode(value, "UTF-8");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
 			// Get type...
 			switch (type) {
 			case "team":
@@ -810,7 +818,7 @@ public class Application extends Controller {
 			team.datecreated = new Date();
 			team.save();
 		}
-		
+
 		List<Card> cards = Card.find.all();
 		for (Card card : cards) {
 			card.uniquekey = card.createUniqueKey();
@@ -834,13 +842,13 @@ public class Application extends Controller {
 		String email = session("email");
 		User user = User.findByEmail(email);
 		AccessMiddleware.removeSessionRecords(user);
-		
+
 		// Reset all globals...
 		openCardKey = "";
-		
+
 		// Clear the session...
 		session().clear();
-				
+
 		flash("success", Messages.get("youve.been.logged.out"));
 		return GO_HOME;
 	}
@@ -940,7 +948,7 @@ public class Application extends Controller {
 		Form<CardAdd> cardEntry = form(CardAdd.class).bindFromRequest();
 		// Get correct record...
 		Card card = Card.findByUniqueKey(cardkey);
-		
+
 		// Someone is editing the record...
 		// Need to record current version of this record to compare on save...
 		// This will record the Audit History...
@@ -1158,7 +1166,7 @@ public class Application extends Controller {
 		card.updatedby = AccessMiddleware.getSessionEmail();
 		card.dateupdated = new Date();
 		card.save();
-		
+
 		// Let's check the CardEdit record and see what is different...
 		String editkey = card.editkey;
 		CardEdit cardEdit = CardEdit.findByEditKey(editkey);

@@ -68,7 +68,7 @@ Seq[Any](format.raw/*1.4*/("""
 object contactsent extends contactsent_Scope0.contactsent
               /*
                   -- GENERATED --
-                  DATE: Mon Jan 30 13:46:16 MST 2017
+                  DATE: Mon Jan 30 15:32:15 MST 2017
                   SOURCE: C:/WebDev/workspace/RookieCards/app/views/contactsent.scala.html
                   HASH: 4d97445639faa5aa76467de766113043ec21d414
                   MATRIX: 750->1|846->3|879->11|892->17|931->19|962->24

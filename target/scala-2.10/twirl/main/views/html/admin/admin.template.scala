@@ -81,7 +81,7 @@ Seq[Any](format.raw/*1.38*/("""
 object admin extends admin_Scope0.admin
               /*
                   -- GENERATED --
-                  DATE: Mon Jan 30 13:46:16 MST 2017
+                  DATE: Mon Jan 30 15:32:15 MST 2017
                   SOURCE: C:/WebDev/workspace/RookieCards/app/views/admin/admin.scala.html
                   HASH: 345d3106e8afeeb23ea2dd1805230ff7901d06fd
                   MATRIX: 768->1|899->37|927->40|945->50|984->52|1012->54|1303->318|1318->324|1381->366|1626->584|1641->590|1700->628|1953->854|1968->860|2028->899

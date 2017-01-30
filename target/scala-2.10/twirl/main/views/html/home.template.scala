@@ -73,7 +73,7 @@ Seq[Any](_display_(/*1.2*/main()/*1.8*/ {_display_(Seq[Any](format.raw/*1.10*/("
 object home extends home_Scope0.home
               /*
                   -- GENERATED --
-                  DATE: Mon Jan 30 13:46:16 MST 2017
+                  DATE: Mon Jan 30 15:32:15 MST 2017
                   SOURCE: C:/WebDev/workspace/RookieCards/app/views/home.scala.html
                   HASH: 7112f5d4575cfb701315b98a982e311d3e13b0ad
                   MATRIX: 825->1|838->7|877->9|905->11|1190->270|1204->276|1263->315|1509->534|1524->540|1585->580

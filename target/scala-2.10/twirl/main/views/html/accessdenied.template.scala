@@ -72,7 +72,7 @@ Seq[Any](format.raw/*1.20*/("""
 object accessdenied extends accessdenied_Scope0.accessdenied
               /*
                   -- GENERATED --
-                  DATE: Mon Jan 30 13:46:16 MST 2017
+                  DATE: Mon Jan 30 15:32:15 MST 2017
                   SOURCE: C:/WebDev/workspace/RookieCards/app/views/accessdenied.scala.html
                   HASH: 8783e9ded580ffc1e5e06195d92d741c956fa60a
                   MATRIX: 759->1|872->19|902->24|920->34|959->36|989->40
