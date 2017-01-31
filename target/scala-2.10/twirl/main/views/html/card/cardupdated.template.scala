@@ -68,7 +68,7 @@ Seq[Any](_display_(/*1.2*/main()/*1.8*/ {_display_(Seq[Any](format.raw/*1.10*/("
 object cardupdated extends cardupdated_Scope0.cardupdated
               /*
                   -- GENERATED --
-                  DATE: Mon Jan 30 15:32:16 MST 2017
+                  DATE: Tue Jan 31 12:33:21 MST 2017
                   SOURCE: C:/WebDev/workspace/RookieCards/app/views/card/cardupdated.scala.html
                   HASH: 10db56d7bc86615f57702c5fc4f0ebc0916b1e54
                   MATRIX: 844->1|857->7|896->9|924->11|1361->421|1406->445|1666->675

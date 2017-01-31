@@ -21,15 +21,15 @@ import play.data._
 import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 
-class editcard extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template6[Form[Application.CardAdd],Card,java.util.List[Team],java.util.List[Lookup],java.util.List[CardAudit],java.util.List[Comment],play.twirl.api.HtmlFormat.Appendable] {
+class editcard extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with play.twirl.api.Template7[Form[Application.CardAdd],Card,java.util.List[Team],java.util.List[Lookup],java.util.List[CardAudit],java.util.List[Comment],User,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*1.2*/(rookieCard: Form[Application.CardAdd], card: Card, teams: java.util.List[Team], lookups: java.util.List[Lookup], auditTrail: java.util.List[CardAudit], allComments: java.util.List[Comment]):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(rookieCard: Form[Application.CardAdd], card: Card, teams: java.util.List[Team], lookups: java.util.List[Lookup], auditTrail: java.util.List[CardAudit], allComments: java.util.List[Comment], user: User):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 import java.text.SimpleDateFormat
 
-Seq[Any](format.raw/*1.192*/("""
+Seq[Any](format.raw/*1.204*/("""
 
 """),format.raw/*4.1*/("""
 """),_display_(/*5.2*/main(null)/*5.12*/ {_display_(Seq[Any](format.raw/*5.14*/("""
@@ -131,18 +131,23 @@ Seq[Any](format.raw/*1.192*/("""
 				<input type="submit" value="Submit" />
 				<a href="/" class="buttonCancel">"""),_display_(/*102.39*/Messages("goback")),format.raw/*102.57*/("""</a>
 			</div>
-			"""),_display_(/*104.5*/if(!auditTrail.isEmpty)/*104.28*/ {_display_(Seq[Any](format.raw/*104.30*/("""
-				"""),format.raw/*105.5*/("""<div class="modifiedSection" style="font-size: 10px;">
-					<table class="modifiedTable">
-						"""),_display_(/*107.8*/for(audit <- auditTrail) yield /*107.32*/ {_display_(Seq[Any](format.raw/*107.34*/("""
-							"""),format.raw/*108.8*/("""<tr>
-								<td>"""),_display_(/*109.14*/audit/*109.19*/.editor),format.raw/*109.26*/(""" """),format.raw/*109.27*/("""("""),_display_(/*109.29*/audit/*109.34*/.editoremail),format.raw/*109.46*/(""") changed <b>"""),_display_(/*109.60*/audit/*109.65*/.fielddisplay),format.raw/*109.78*/("""</b> from <b>"""),_display_(/*109.92*/audit/*109.97*/.oldvalue),format.raw/*109.106*/("""</b> to <b>"""),_display_(/*109.118*/audit/*109.123*/.newvalue),format.raw/*109.132*/("""</b> on """),_display_(/*109.141*/audit/*109.146*/.editdate),format.raw/*109.155*/(""".</td>
-							</tr>
-						""")))}),format.raw/*111.8*/("""					
-					"""),format.raw/*112.6*/("""</table>
+			"""),_display_(/*104.5*/if(user.role.toString() == "2")/*104.36*/ {_display_(Seq[Any](format.raw/*104.38*/("""
+				"""),format.raw/*105.5*/("""<div class="submit">
+					<a href="javascript:deleteCard('"""),_display_(/*106.39*/card/*106.43*/.uniquekey),format.raw/*106.53*/("""')" class="buttonDelete" style="color: #FFFFFF;">Delete</a>
 				</div>
-			""")))}),format.raw/*114.5*/("""
-			"""),format.raw/*115.4*/("""<!-- This is needed for bottom shadow to appear... -->
+			""")))}),format.raw/*108.5*/("""
+			"""),_display_(/*109.5*/if(!auditTrail.isEmpty)/*109.28*/ {_display_(Seq[Any](format.raw/*109.30*/("""
+				"""),format.raw/*110.5*/("""<div class="modifiedSection" style="font-size: 10px;">
+					<table class="modifiedTable">
+						"""),_display_(/*112.8*/for(audit <- auditTrail) yield /*112.32*/ {_display_(Seq[Any](format.raw/*112.34*/("""
+							"""),format.raw/*113.8*/("""<tr>
+								<td>"""),_display_(/*114.14*/audit/*114.19*/.editor),format.raw/*114.26*/(""" """),format.raw/*114.27*/("""("""),_display_(/*114.29*/audit/*114.34*/.editoremail),format.raw/*114.46*/(""") changed <b>"""),_display_(/*114.60*/audit/*114.65*/.fielddisplay),format.raw/*114.78*/("""</b> from <b>"""),_display_(/*114.92*/audit/*114.97*/.oldvalue),format.raw/*114.106*/("""</b> to <b>"""),_display_(/*114.118*/audit/*114.123*/.newvalue),format.raw/*114.132*/("""</b> on """),_display_(/*114.141*/audit/*114.146*/.editdate),format.raw/*114.155*/(""".</td>
+							</tr>
+						""")))}),format.raw/*116.8*/("""					
+					"""),format.raw/*117.6*/("""</table>
+				</div>
+			""")))}),format.raw/*119.5*/("""
+			"""),format.raw/*120.4*/("""<!-- This is needed for bottom shadow to appear... -->
 			<div></div>
 		</form>
 	</section>
@@ -151,9 +156,9 @@ Seq[Any](format.raw/*1.192*/("""
     }
   }
 
-  def render(rookieCard:Form[Application.CardAdd],card:Card,teams:java.util.List[Team],lookups:java.util.List[Lookup],auditTrail:java.util.List[CardAudit],allComments:java.util.List[Comment]): play.twirl.api.HtmlFormat.Appendable = apply(rookieCard,card,teams,lookups,auditTrail,allComments)
+  def render(rookieCard:Form[Application.CardAdd],card:Card,teams:java.util.List[Team],lookups:java.util.List[Lookup],auditTrail:java.util.List[CardAudit],allComments:java.util.List[Comment],user:User): play.twirl.api.HtmlFormat.Appendable = apply(rookieCard,card,teams,lookups,auditTrail,allComments,user)
 
-  def f:((Form[Application.CardAdd],Card,java.util.List[Team],java.util.List[Lookup],java.util.List[CardAudit],java.util.List[Comment]) => play.twirl.api.HtmlFormat.Appendable) = (rookieCard,card,teams,lookups,auditTrail,allComments) => apply(rookieCard,card,teams,lookups,auditTrail,allComments)
+  def f:((Form[Application.CardAdd],Card,java.util.List[Team],java.util.List[Lookup],java.util.List[CardAudit],java.util.List[Comment],User) => play.twirl.api.HtmlFormat.Appendable) = (rookieCard,card,teams,lookups,auditTrail,allComments,user) => apply(rookieCard,card,teams,lookups,auditTrail,allComments,user)
 
   def ref: this.type = this
 
@@ -166,11 +171,11 @@ Seq[Any](format.raw/*1.192*/("""
 object editcard extends editcard_Scope0.editcard
               /*
                   -- GENERATED --
-                  DATE: Mon Jan 30 15:32:16 MST 2017
+                  DATE: Tue Jan 31 12:34:37 MST 2017
                   SOURCE: C:/WebDev/workspace/RookieCards/app/views/card/editcard.scala.html
-                  HASH: 33aaf3336a8b42984721fcccc63755f4623414d3
-                  MATRIX: 874->1|1193->191|1223->231|1251->234|1269->244|1308->246|1337->249|1427->312|1455->313|1489->321|1572->377|1600->378|1632->384|1733->458|1761->459|1795->466|1846->490|1874->491|1915->505|1943->506|1976->512|2004->513|2109->591|2122->595|2153->605|2826->1250|2840->1254|2867->1259|3287->1652|3325->1674|3365->1676|3404->1688|3448->1723|3488->1725|3524->1734|3565->1766|3605->1768|3657->1788|3687->1789|3723->1797|3739->1803|3766->1808|3797->1811|3813->1817|3840->1822|3882->1832|3924->1843|3961->1853|4424->2289|4458->2307|4498->2309|4537->2320|4566->2321|4602->2330|4637->2356|4677->2358|4728->2378|4757->2379|4792->2387|4805->2391|4831->2396|4861->2399|4874->2403|4900->2408|4938->2417|4968->2418|5010->2429|5046->2438|5296->2662|5334->2684|5374->2686|5408->2694|5454->2731|5494->2733|5529->2741|5601->2786|5616->2792|5642->2797|5692->2820|5735->2853|5776->2855|5816->2863|5846->2864|5883->2873|5899->2879|5926->2884|6017->2945|6054->2952|6086->2957|6388->3231|6402->3235|6429->3240|6812->3597|6845->3621|6885->3623|6919->3630|7046->3731|7089->3758|7129->3760|7166->3770|7225->3802|7265->3833|7295->3835|7392->3908|7452->3941|7468->3948|7496->3955|7556->3988|7572->3995|7601->4003|7661->4033|7701->4046|7759->4074|7791->4079|7862->4124|7901->4154|7941->4156|7975->4163|8061->4222|8080->4232|8121->4252|8165->4266|8197->4271|8340->4386|8380->4404|8428->4425|8461->4448|8502->4450|8536->4456|8662->4555|8703->4579|8744->4581|8781->4590|8828->4609|8843->4614|8872->4621|8902->4622|8932->4624|8947->4629|8981->4641|9023->4655|9038->4660|9073->4673|9115->4687|9130->4692|9162->4701|9203->4713|9219->4718|9251->4727|9289->4736|9305->4741|9337->4750|9397->4779|9437->4791|9494->4817|9527->4822
-                  LINES: 27->1|32->1|34->4|35->5|35->5|35->5|36->6|37->7|37->7|38->8|38->8|38->8|39->9|39->9|39->9|40->10|41->11|41->11|42->12|42->12|43->13|43->13|45->15|45->15|45->15|58->28|58->28|58->28|67->37|67->37|67->37|68->38|68->38|68->38|68->38|68->38|68->38|68->38|68->38|68->38|68->38|68->38|68->38|68->38|68->38|68->38|69->39|70->40|83->53|83->53|83->53|84->54|84->54|84->54|84->54|84->54|84->54|84->54|84->54|84->54|84->54|84->54|84->54|84->54|84->54|84->54|85->55|86->56|94->64|94->64|94->64|95->65|95->65|95->65|96->66|96->66|96->66|96->66|96->66|96->66|96->66|96->66|96->66|96->66|96->66|96->66|98->68|99->69|100->70|103->73|103->73|103->73|111->81|111->81|111->81|112->82|114->84|114->84|114->84|115->85|116->86|116->86|116->86|116->86|117->87|117->87|117->87|118->88|118->88|118->88|120->90|121->91|123->93|124->94|126->96|126->96|126->96|127->97|127->97|127->97|127->97|128->98|129->99|132->102|132->102|134->104|134->104|134->104|135->105|137->107|137->107|137->107|138->108|139->109|139->109|139->109|139->109|139->109|139->109|139->109|139->109|139->109|139->109|139->109|139->109|139->109|139->109|139->109|139->109|139->109|139->109|139->109|141->111|142->112|144->114|145->115
+                  HASH: 130b106f34fd662b80db1c18aa8f6614f0851462
+                  MATRIX: 879->1|1210->203|1240->243|1268->246|1286->256|1325->258|1354->261|1444->324|1472->325|1506->333|1589->389|1617->390|1649->396|1750->470|1778->471|1812->478|1863->502|1891->503|1932->517|1960->518|1993->524|2021->525|2126->603|2139->607|2170->617|2843->1262|2857->1266|2884->1271|3304->1664|3342->1686|3382->1688|3421->1700|3465->1735|3505->1737|3541->1746|3582->1778|3622->1780|3674->1800|3704->1801|3740->1809|3756->1815|3783->1820|3814->1823|3830->1829|3857->1834|3899->1844|3941->1855|3978->1865|4441->2301|4475->2319|4515->2321|4554->2332|4583->2333|4619->2342|4654->2368|4694->2370|4745->2390|4774->2391|4809->2399|4822->2403|4848->2408|4878->2411|4891->2415|4917->2420|4955->2429|4985->2430|5027->2441|5063->2450|5313->2674|5351->2696|5391->2698|5425->2706|5471->2743|5511->2745|5546->2753|5618->2798|5633->2804|5659->2809|5709->2832|5752->2865|5793->2867|5833->2875|5863->2876|5900->2885|5916->2891|5943->2896|6034->2957|6071->2964|6103->2969|6405->3243|6419->3247|6446->3252|6829->3609|6862->3633|6902->3635|6936->3642|7063->3743|7106->3770|7146->3772|7183->3782|7242->3814|7282->3845|7312->3847|7409->3920|7469->3953|7485->3960|7513->3967|7573->4000|7589->4007|7618->4015|7678->4045|7718->4058|7776->4086|7808->4091|7879->4136|7918->4166|7958->4168|7992->4175|8078->4234|8097->4244|8138->4264|8182->4278|8214->4283|8357->4398|8397->4416|8445->4437|8486->4468|8527->4470|8561->4476|8649->4536|8663->4540|8695->4550|8803->4627|8836->4633|8869->4656|8910->4658|8944->4664|9070->4763|9111->4787|9152->4789|9189->4798|9236->4817|9251->4822|9280->4829|9310->4830|9340->4832|9355->4837|9389->4849|9431->4863|9446->4868|9481->4881|9523->4895|9538->4900|9570->4909|9611->4921|9627->4926|9659->4935|9697->4944|9713->4949|9745->4958|9805->4987|9845->4999|9902->5025|9935->5030
+                  LINES: 27->1|32->1|34->4|35->5|35->5|35->5|36->6|37->7|37->7|38->8|38->8|38->8|39->9|39->9|39->9|40->10|41->11|41->11|42->12|42->12|43->13|43->13|45->15|45->15|45->15|58->28|58->28|58->28|67->37|67->37|67->37|68->38|68->38|68->38|68->38|68->38|68->38|68->38|68->38|68->38|68->38|68->38|68->38|68->38|68->38|68->38|69->39|70->40|83->53|83->53|83->53|84->54|84->54|84->54|84->54|84->54|84->54|84->54|84->54|84->54|84->54|84->54|84->54|84->54|84->54|84->54|85->55|86->56|94->64|94->64|94->64|95->65|95->65|95->65|96->66|96->66|96->66|96->66|96->66|96->66|96->66|96->66|96->66|96->66|96->66|96->66|98->68|99->69|100->70|103->73|103->73|103->73|111->81|111->81|111->81|112->82|114->84|114->84|114->84|115->85|116->86|116->86|116->86|116->86|117->87|117->87|117->87|118->88|118->88|118->88|120->90|121->91|123->93|124->94|126->96|126->96|126->96|127->97|127->97|127->97|127->97|128->98|129->99|132->102|132->102|134->104|134->104|134->104|135->105|136->106|136->106|136->106|138->108|139->109|139->109|139->109|140->110|142->112|142->112|142->112|143->113|144->114|144->114|144->114|144->114|144->114|144->114|144->114|144->114|144->114|144->114|144->114|144->114|144->114|144->114|144->114|144->114|144->114|144->114|144->114|146->116|147->117|149->119|150->120
                   -- GENERATED --
               */
           

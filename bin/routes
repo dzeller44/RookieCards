@@ -39,8 +39,6 @@ GET    /reports/:reportType        controllers.Application.reportsCreate(reportT
 GET    /useraccount                controllers.Application.openUserAccount(email: String)
 POST   /useraccount                controllers.Application.updateUserAccount()
 
-
-
 # Admin pages...
 GET    /admin                      controllers.Application.adminHome()
 
@@ -53,7 +51,8 @@ GET    /adminuser                  controllers.Application.userMaintenance()
 
 GET    /search                     controllers.Application.getAllUsers()
 
-
+GET    /deletecard/:cardkey        controllers.Application.deleteCardConfirm(cardkey: String)
+POST   /deletecard/:cardkey        controllers.Application.deleteCard(cardkey: String)
 
 GET    /finduser                   controllers.Application.findUser()
 POST   /finduser                   controllers.Application.getUserByEmailWildcard()

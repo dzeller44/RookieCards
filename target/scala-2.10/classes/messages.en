@@ -69,6 +69,7 @@ admin.delete.account=The User Account has been successfully deleted.
 admin.newuser.subject=Dan's Rookie Cards - You have been added
 admin.newuser.message=You have been added to Dan's Rookie Cards.  Please change your password.  <br> Click on this link : {0} to change your password.
 admin.newuser.msg.created=The new User has been created successfully.  An email has been sent to the email that was entered.
+admin.delete.card=The Rookie Card has been successfully deleted.
 
 card.save=The new Rookie Card has been saved successfully.
 card.updated=The Rookie Card has been updated successfully.

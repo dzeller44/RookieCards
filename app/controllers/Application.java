@@ -3,37 +3,33 @@ package controllers;
 import static play.data.Form.form;
 
 import java.awt.Desktop;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.UnsupportedEncodingException;
-import java.io.File;
+import java.lang.reflect.Field;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.Calendar;
-import javax.inject.Inject;
-import javax.persistence.Id;
 
-import java.lang.reflect.Field;
+import javax.inject.Inject;
 
 import org.apache.commons.mail.EmailException;
+
 import com.opencsv.CSVWriter;
 
-import controllers.Application.FindUser;
-import controllers.Application.Login;
 import controllers.helpers.AccessMiddleware;
 import managers.SessionData;
 import models.AuditLog;
-import models.Comment;
 import models.Card;
 import models.CardAudit;
 import models.CardEdit;
+import models.Comment;
 import models.Lookup;
+import models.RemovedCard;
 import models.RemovedUser;
 import models.Team;
 import models.User;
@@ -43,51 +39,41 @@ import models.utils.Mail;
 import play.Configuration;
 import play.Logger;
 import play.data.Form;
-import play.data.format.Formats;
 import play.data.validation.Constraints;
-import play.data.validation.ValidationError;
 import play.i18n.Messages;
 import play.libs.mailer.MailerClient;
 import play.mvc.Controller;
 import play.mvc.Result;
-import utils.ScheduleEmail;
-
+import views.html.accessdenied;
+import views.html.auth;
+import views.html.contact;
+import views.html.contactsent;
+import views.html.exportready;
+import views.html.genericsuccess;
+import views.html.home;
+import views.html.index;
+import views.html.useraccount;
+import views.html.admin.admin;
+import views.html.admin.deleteconfirm;
+import views.html.admin.deleteduser;
+import views.html.admin.editlookup;
+import views.html.admin.getuser;
+import views.html.admin.lookup;
+import views.html.admin.lookupcreated;
+import views.html.admin.lookups;
+import views.html.admin.lookupupdated;
+import views.html.admin.openuser;
+import views.html.admin.saveduser;
+import views.html.admin.searchusers;
+import views.html.admin.showuser;
+import views.html.admin.usermaint;
 import views.html.card.card;
 import views.html.card.cardcreated;
 import views.html.card.cardupdated;
-import views.html.card.searchcards;
+import views.html.card.deletecardconfirm;
+import views.html.card.deletedcard;
 import views.html.card.editcard;
-
-import views.html.index;
-import views.html.auth;
-import views.html.home;
-import views.html.accessdenied;
-import views.html.useraccount;
-import views.html.export;
-import views.html.exportready;
-import views.html.contact;
-import views.html.contactsent;
-import views.html.genericsuccess;
-
-import views.html.admin.searchusers;
-import views.html.admin.admin;
-import views.html.admin.usermaint;
-import views.html.admin.getuser;
-import views.html.admin.showuser;
-import views.html.admin.displayuser;
-import views.html.admin.openuser;
-import views.html.admin.saveduser;
-import views.html.admin.deleteconfirm;
-import views.html.admin.deleteduser;
-import views.html.admin.lookup;
-import views.html.admin.editlookup;
-import views.html.admin.lookups;
-import views.html.admin.lookupcreated;
-import views.html.admin.lookupupdated;
-
-import views.html.reports.charts1;
-import views.html.reports.charts2;
-import views.html.reports.chartsbar;
+import views.html.card.searchcards;
 
 /**
  * Login and Logout. User: yesnault
@@ -475,6 +461,66 @@ public class Application extends Controller {
 		return ok(contactsent.render());
 	}
 
+	public Result deleteCard(String cardkey) {
+		// Check Role...
+		if (hasCorrectAccess(RoleType.ADMIN) != true) {
+			return ACCESS_DENIED;
+		} else {
+			// Locate the user record and delete...
+			Card card = Card.findByUniqueKey(cardkey);
+			if (card != null) {
+				// Open user record...
+				Logger.debug("Application.deleteCard: Found Card based on " + cardkey);
+			} else {
+				// Display message...
+				Logger.debug("Application.deleteCard: No Card found based on " + cardkey);
+			}
+
+			// Create record in the removed table
+			// Capture user and date/time
+			// Remove from table...
+			RemovedCard removedCard = new RemovedCard();
+
+			// Copy the record over...
+			removedCard.name = card.name;
+			removedCard.team = card.team;
+			removedCard.teamkey = card.teamkey;
+			removedCard.position = card.position;
+			removedCard.cardmaker = card.cardmaker;
+			removedCard.year = card.year;
+			removedCard.userkey = card.userkey;
+			removedCard.updatedby = card.updatedby;
+			removedCard.dateupdated = card.dateupdated;
+			removedCard.datecreated = card.datecreated;
+			removedCard.uniquekey = card.uniquekey;
+
+			// Set custom fields...
+			removedCard.dateRemoved = new Date();
+			removedCard.removedBy = AccessMiddleware.getSessionEmail();
+			removedCard.removedbyuserkey = AccessMiddleware.getSessionUserKey();
+			removedCard.save();
+
+			// Delete the card...
+			card.delete();
+
+			AuditLog.setLog(AccessMiddleware.getSessionID(), AccessMiddleware.getSessionEmail(), "Card", "deleteCard()",
+					"Card DELETED by Admin", AccessMiddleware.getSessionID());
+
+			return ok(deletedcard.render());
+
+		}
+	}
+	
+	public Result deleteCardConfirm(String cardkey) {
+		// Check Role...
+		if (hasCorrectAccess(RoleType.ADMIN) != true) {
+			return ACCESS_DENIED;
+		} else {
+			Card card = Card.findByUniqueKey(cardkey);
+			return ok(deletecardconfirm.render(card));
+		}
+	}
+
 	public Result deleteUser(String userkey) {
 		// Check Role...
 		if (hasCorrectAccess(RoleType.ADMIN) != true) {
@@ -823,6 +869,12 @@ public class Application extends Controller {
 		for (Card card : cards) {
 			card.uniquekey = card.createUniqueKey();
 			card.datecreated = new Date();
+			// Does the team exist?
+			String teamName = card.team;
+			if (!teamName.equals("")) {
+				Team team = Team.findByTeamName(teamName);
+				card.teamkey = team.uniquekey;
+			}
 			card.save();
 		}
 
@@ -945,7 +997,7 @@ public class Application extends Controller {
 			openCardKey = cardkey;
 			return ok(auth.render(form(Login.class)));
 		}
-		Form<CardAdd> cardEntry = form(CardAdd.class).bindFromRequest();
+		Form<CardAdd> cardEntry = form(CardAdd.class).bindFromRequest();		
 		// Get correct record...
 		Card card = Card.findByUniqueKey(cardkey);
 
@@ -969,11 +1021,13 @@ public class Application extends Controller {
 		card.save();
 		cardEdit.save();
 
+		String userkey = AccessMiddleware.getSessionUserKey();
+		User user = User.findByUserKey(userkey);
 		List<Lookup> lookups = Lookup.find.all();
 		List<CardAudit> cardAudits = CardAudit.findByCardKey(cardkey);
 		List<Comment> allComments = Comment.getAllByCardKey(cardkey);
 		List<Team> teams = Team.find.all();
-		return ok(editcard.render(cardEntry, card, teams, lookups, cardAudits, allComments));
+		return ok(editcard.render(cardEntry, card, teams, lookups, cardAudits, allComments, user));
 	}
 
 	public Result openLogin() {
@@ -1049,6 +1103,9 @@ public class Application extends Controller {
 		card.name = cardForm.name;
 		card.position = cardForm.position;
 		card.team = cardForm.team;
+		// Let's also get the teamkey...
+		Team team = Team.findByTeamName(cardForm.team);
+		card.teamkey = team.uniquekey;
 		card.cardmaker = cardForm.cardmaker;
 		card.year = cardForm.year;
 		card.datecreated = new Date();
@@ -1153,12 +1210,15 @@ public class Application extends Controller {
 			List<CardAudit> cardAudits = CardAudit.findByCardKey(cardkey);
 			List<Comment> allComments = Comment.getAllByCardKey(cardkey);
 			List<Team> teams = Team.find.all();
-			return badRequest(editcard.render(cardEntry, card, teams, lookups, cardAudits, allComments));
+			return badRequest(editcard.render(cardEntry, card, teams, lookups, cardAudits, allComments, user));
 		}
 		CardAdd cardForm = cardEntry.get();
 		Logger.debug("Update Card - good request");
 		card.name = cardForm.name;
 		card.team = cardForm.team;
+		// Let's also get the teamkey...
+		Team team = Team.findByTeamName(cardForm.team);
+		card.teamkey = team.uniquekey;
 		card.position = cardForm.position;
 		card.cardmaker = cardForm.cardmaker;
 		card.year = cardForm.year;
@@ -1205,8 +1265,8 @@ public class Application extends Controller {
 					} else {
 						newValue = "";
 					}
-					if (oldValue.equals(newValue)) {
-						// Same value - skip else Create Audit record...
+					if (!oldValue.equals(newValue)) {
+						// Different values, create Audit record...
 						cardAudit = new CardAudit();
 						cardAudit.fieldname = fieldName;
 						cardAudit.fielddisplay = fieldDisplay;

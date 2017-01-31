@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/WebDev/workspace/RookieCards/conf/routes
-// @DATE:Mon Jan 30 15:32:14 MST 2017
+// @DATE:Tue Jan 31 12:38:12 MST 2017
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -15,7 +15,7 @@ import _root_.play.libs.F
 package controllers.javascript {
   import ReverseRouteContext.empty
 
-  // @LINE:110
+  // @LINE:109
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -23,7 +23,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:110
+    // @LINE:109
     def at: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.at",
       """
@@ -43,7 +43,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:61
+    // @LINE:60
     def updateUser: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.updateUser",
       """
@@ -53,7 +53,17 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:72
+    // @LINE:55
+    def deleteCard: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Application.deleteCard",
+      """
+        function(cardkey) {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "deletecard/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("cardkey", encodeURIComponent(cardkey))})
+        }
+      """
+    )
+  
+    // @LINE:71
     def openLookup: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.openLookup",
       """
@@ -63,7 +73,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:75
+    // @LINE:74
     def filterLookups: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.filterLookups",
       """
@@ -73,7 +83,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:67
+    // @LINE:66
     def openUser: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.openUser",
       """
@@ -83,7 +93,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:69
+    // @LINE:68
     def addLookup: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.addLookup",
       """
@@ -103,7 +113,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:45
+    // @LINE:43
     def adminHome: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.adminHome",
       """
@@ -123,7 +133,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:73
+    // @LINE:72
     def updateLookup: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.updateLookup",
       """
@@ -133,7 +143,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:83
+    // @LINE:82
     def initializeRecordUniqueKeys: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.initializeRecordUniqueKeys",
       """
@@ -143,7 +153,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:65
+    // @LINE:64
     def exportOpenFile: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.exportOpenFile",
       """
@@ -183,6 +193,16 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:54
+    def deleteCardConfirm: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.Application.deleteCardConfirm",
+      """
+        function(cardkey) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "deletecard/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("cardkey", encodeURIComponent(cardkey))})
+        }
+      """
+    )
+  
     // @LINE:24
     def searchCards: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.searchCards",
@@ -203,7 +223,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:59
+    // @LINE:58
     def getUserByEmailWildcard: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.getUserByEmailWildcard",
       """
@@ -233,7 +253,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:52
+    // @LINE:50
     def userMaintenance: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.userMaintenance",
       """
@@ -243,7 +263,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:50
+    // @LINE:48
     def lookupMaintenance: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.lookupMaintenance",
       """
@@ -293,7 +313,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:77
+    // @LINE:76
     def deleteUserConfirm: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.deleteUserConfirm",
       """
@@ -303,7 +323,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:58
+    // @LINE:57
     def findUser: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.findUser",
       """
@@ -323,7 +343,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:78
+    // @LINE:77
     def deleteUser: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.deleteUser",
       """
@@ -347,7 +367,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:54
+    // @LINE:52
     def getAllUsers: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.getAllUsers",
       """
@@ -397,7 +417,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:70
+    // @LINE:69
     def saveLookup: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.saveLookup",
       """
@@ -407,7 +427,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:63
+    // @LINE:62
     def exportUsers: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Application.exportUsers",
       """

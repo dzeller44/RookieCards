@@ -83,7 +83,7 @@ Seq[Any](format.raw/*1.44*/("""
 object getuser extends getuser_Scope0.getuser
               /*
                   -- GENERATED --
-                  DATE: Mon Jan 30 15:32:16 MST 2017
+                  DATE: Tue Jan 31 12:33:21 MST 2017
                   SOURCE: C:/WebDev/workspace/RookieCards/app/views/admin/getuser.scala.html
                   HASH: 6d482f01fce913d9848c923842bd5d567e8e008e
                   MATRIX: 775->1|912->43|940->46|958->56|997->58|1025->60|1717->726|1758->758|1798->760|1837->771|1938->845|1959->857|2000->877|2039->888|2084->903|2114->906|2248->1013|2287->1031

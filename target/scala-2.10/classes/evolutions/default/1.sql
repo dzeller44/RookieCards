@@ -92,6 +92,26 @@ create table lookup (
   constraint pk_lookup primary key (id))
 ;
 
+create table removed_card (
+  id                        bigint auto_increment not null,
+  name                      varchar(255),
+  team                      varchar(255),
+  teamkey                   varchar(255),
+  position                  varchar(255),
+  cardmaker                 varchar(255),
+  year                      integer,
+  uniquekey                 varchar(255),
+  userkey                   varchar(255),
+  editkey                   varchar(255),
+  updatedby                 varchar(255),
+  datecreated               datetime(6),
+  dateupdated               datetime(6),
+  removed_by                varchar(255),
+  removedbyuserkey          varchar(255),
+  date_removed              datetime(6),
+  constraint pk_removed_card primary key (id))
+;
+
 create table removed_user (
   id                        bigint auto_increment not null,
   email                     varchar(255),
@@ -195,6 +215,8 @@ drop table card_edit;
 drop table comment;
 
 drop table lookup;
+
+drop table removed_card;
 
 drop table removed_user;
 

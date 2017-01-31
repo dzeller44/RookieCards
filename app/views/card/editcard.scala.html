@@ -1,4 +1,4 @@
-@(rookieCard: Form[Application.CardAdd], card: Card, teams: java.util.List[Team], lookups: java.util.List[Lookup], auditTrail: java.util.List[CardAudit], allComments: java.util.List[Comment])
+@(rookieCard: Form[Application.CardAdd], card: Card, teams: java.util.List[Team], lookups: java.util.List[Lookup], auditTrail: java.util.List[CardAudit], allComments: java.util.List[Comment], user: User)
 
 @import java.text.SimpleDateFormat
 
@@ -101,6 +101,11 @@
 				<input type="submit" value="Submit" />
 				<a href="/" class="buttonCancel">@Messages("goback")</a>
 			</div>
+			@if(user.role.toString() == "2") {
+				<div class="submit">
+					<a href="javascript:deleteCard('@card.uniquekey')" class="buttonDelete" style="color: #FFFFFF;">Delete</a>
+				</div>
+			}
 			@if(!auditTrail.isEmpty) {
 				<div class="modifiedSection" style="font-size: 10px;">
 					<table class="modifiedTable">

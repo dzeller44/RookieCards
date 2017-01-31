@@ -49,6 +49,10 @@ public class Team extends Model {
 	// -- Queries (long id, profile.class)
 	public static Model.Finder<Long, Team> find = new Model.Finder<Long, Team>(Long.class, Team.class);
 	
+	public static Team findByTeamName(String teamName) {
+		return find.where().eq("name", teamName).findUnique();
+	}
+	
 	public static Team findByUniqueKey(String uniqueKey) {
 		return find.where().eq("uniquekey", uniqueKey).findUnique();
 	}

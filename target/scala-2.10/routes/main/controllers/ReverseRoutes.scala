@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/WebDev/workspace/RookieCards/conf/routes
-// @DATE:Mon Jan 30 15:32:14 MST 2017
+// @DATE:Tue Jan 31 12:38:12 MST 2017
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -13,14 +13,14 @@ import _root_.play.libs.F
 // @LINE:6
 package controllers {
 
-  // @LINE:110
+  // @LINE:109
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:110
+    // @LINE:109
     def at(file:String): Call = {
       implicit val _rrc = new ReverseRouteContext(Map(("path", "/public")))
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[PathBindable[String]].unbind("file", file))
@@ -35,31 +35,37 @@ package controllers {
     }
 
   
-    // @LINE:61
+    // @LINE:60
     def updateUser(): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "updateuser")
     }
   
-    // @LINE:72
+    // @LINE:55
+    def deleteCard(cardkey:String): Call = {
+      import ReverseRouteContext.empty
+      Call("POST", _prefix + { _defaultPrefix } + "deletecard/" + implicitly[PathBindable[String]].unbind("cardkey", dynamicString(cardkey)))
+    }
+  
+    // @LINE:71
     def openLookup(lookupkey:String): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "openlookup/" + implicitly[PathBindable[String]].unbind("lookupkey", dynamicString(lookupkey)))
     }
   
-    // @LINE:75
+    // @LINE:74
     def filterLookups(_pf_escape_type:String, value:String): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "filterlookups" + queryString(List(Some(implicitly[QueryStringBindable[String]].unbind("type", _pf_escape_type)), Some(implicitly[QueryStringBindable[String]].unbind("value", value)))))
     }
   
-    // @LINE:67
+    // @LINE:66
     def openUser(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "openuser")
     }
   
-    // @LINE:69
+    // @LINE:68
     def addLookup(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "addlookup")
@@ -71,7 +77,7 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "mainsearch/" + implicitly[PathBindable[String]].unbind("searchText", dynamicString(searchText)))
     }
   
-    // @LINE:45
+    // @LINE:43
     def adminHome(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "admin")
@@ -83,19 +89,19 @@ package controllers {
       Call("POST", _prefix + { _defaultPrefix } + "opencard/" + implicitly[PathBindable[String]].unbind("cardkey", dynamicString(cardkey)))
     }
   
-    // @LINE:73
+    // @LINE:72
     def updateLookup(lookupkey:String): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "openlookup/" + implicitly[PathBindable[String]].unbind("lookupkey", dynamicString(lookupkey)))
     }
   
-    // @LINE:83
+    // @LINE:82
     def initializeRecordUniqueKeys(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "initkeys")
     }
   
-    // @LINE:65
+    // @LINE:64
     def exportOpenFile(fileName:String): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "exportOpenFile/" + implicitly[PathBindable[String]].unbind("fileName", dynamicString(fileName)))
@@ -119,6 +125,12 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "addcomments" + queryString(List(Some(implicitly[QueryStringBindable[String]].unbind("uniquekey", uniquekey)), Some(implicitly[QueryStringBindable[String]].unbind("comment", comment)))))
     }
   
+    // @LINE:54
+    def deleteCardConfirm(cardkey:String): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "deletecard/" + implicitly[PathBindable[String]].unbind("cardkey", dynamicString(cardkey)))
+    }
+  
     // @LINE:24
     def searchCards(): Call = {
       import ReverseRouteContext.empty
@@ -131,7 +143,7 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "user")
     }
   
-    // @LINE:59
+    // @LINE:58
     def getUserByEmailWildcard(): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "finduser")
@@ -149,13 +161,13 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "filtersearch" + queryString(List(Some(implicitly[QueryStringBindable[String]].unbind("type", _pf_escape_type)), Some(implicitly[QueryStringBindable[String]].unbind("value", value)))))
     }
   
-    // @LINE:52
+    // @LINE:50
     def userMaintenance(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "adminuser")
     }
   
-    // @LINE:50
+    // @LINE:48
     def lookupMaintenance(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "tablemaint")
@@ -185,13 +197,13 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "addcard")
     }
   
-    // @LINE:77
+    // @LINE:76
     def deleteUserConfirm(userkey:String): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "deleteuser/" + implicitly[PathBindable[String]].unbind("userkey", dynamicString(userkey)))
     }
   
-    // @LINE:58
+    // @LINE:57
     def findUser(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "finduser")
@@ -203,7 +215,7 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "opencard/" + implicitly[PathBindable[String]].unbind("cardkey", dynamicString(cardkey)))
     }
   
-    // @LINE:78
+    // @LINE:77
     def deleteUser(userkey:String): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "deleteuser/" + implicitly[PathBindable[String]].unbind("userkey", dynamicString(userkey)))
@@ -223,7 +235,7 @@ package controllers {
     
     }
   
-    // @LINE:54
+    // @LINE:52
     def getAllUsers(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "search")
@@ -253,13 +265,13 @@ package controllers {
       Call("POST", _prefix + { _defaultPrefix } + "useraccount")
     }
   
-    // @LINE:70
+    // @LINE:69
     def saveLookup(): Call = {
       import ReverseRouteContext.empty
       Call("POST", _prefix + { _defaultPrefix } + "addlookup")
     }
   
-    // @LINE:63
+    // @LINE:62
     def exportUsers(data:String): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "exportusers/" + implicitly[PathBindable[String]].unbind("data", dynamicString(data)))

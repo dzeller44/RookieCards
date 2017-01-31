@@ -2,6 +2,10 @@ function deleteUser(userkey) {
 	window.location.href = '/deleteuser/' + userkey;
 }
 
+function deleteCard(cardkey) {
+	window.location.href = '/deletecard/' + cardkey;
+}
+
 function filterCardSearch(fieldName, filterType) {
 	// Get selected service...
 	var e = document.getElementById(fieldName);
