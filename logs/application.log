@@ -8,3 +8,13 @@
 2017-02-01 09:15:18,102 [INFO] from application in application-akka.actor.default-dispatcher-7 - Creating Pool for datasource 'default'
 2017-02-01 09:15:18,140 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-7 - Database [default] connected at jdbc:mysql://localhost/rookiecards?characterEncoding=UTF-8
 2017-02-01 09:15:22,854 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-7 - Application started (Dev)
+2017-02-01 09:41:15,138 [INFO] from application in application-akka.actor.default-dispatcher-9 - Shutting down connection pool.
+2017-02-01 09:41:15,330 [WARN] from application in application-akka.actor.default-dispatcher-9 - application.conf @ file:/C:/WebDev/workspace/RookieCards/target/scala-2.10/classes/application.conf: 35: user is deprecated, use username instead
+2017-02-01 09:41:15,331 [INFO] from application in application-akka.actor.default-dispatcher-9 - Creating Pool for datasource 'default'
+2017-02-01 09:41:15,344 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-9 - Database [default] connected at jdbc:mysql://localhost/rookiecards?characterEncoding=UTF-8
+2017-02-01 09:41:16,164 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-9 - Application started (Dev)
+2017-02-01 09:41:49,331 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.
+2017-02-01 09:41:49,440 [WARN] from application in application-akka.actor.default-dispatcher-3 - application.conf @ file:/C:/WebDev/workspace/RookieCards/target/scala-2.10/classes/application.conf: 35: user is deprecated, use username instead
+2017-02-01 09:41:49,441 [INFO] from application in application-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'default'
+2017-02-01 09:41:49,449 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-3 - Database [default] connected at jdbc:mysql://localhost/rookiecards?characterEncoding=UTF-8
+2017-02-01 09:41:50,319 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-3 - Application started (Dev)

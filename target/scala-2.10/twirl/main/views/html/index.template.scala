@@ -36,12 +36,13 @@ Seq[Any](format.raw/*1.78*/("""
 		<div class="container">
 			<h2><b>Welcome to Dan's Rookie Cards</h2>
 			<div class="testimonials" data-appear-top-offset="-200" data-animated="fadeInUp">
+				<br><br>
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-4 margbot30">
 							<a class="services_item" href="/signup">
 								<p>
-									<img src=""""),_display_(/*13.21*/routes/*13.27*/.Assets.at("/img/icon_Add_User.png")),format.raw/*13.63*/(""""> <b>Create New Account</b>
+									<img src=""""),_display_(/*14.21*/routes/*14.27*/.Assets.at("/img/icon_Add_User.png")),format.raw/*14.63*/(""""> <b>Create New Account</b>
 								</p>
 								<span>Register for an account...</span>
 							</a>
@@ -49,7 +50,7 @@ Seq[Any](format.raw/*1.78*/("""
 						<div class="col-sm-4 margbot30">
 							<a class="services_item" href="/auth">
 								<p>
-									<img src=""""),_display_(/*21.21*/routes/*21.27*/.Assets.at("/img/icon_Sign_In.png")),format.raw/*21.62*/(""""> <b>Sign In</b>
+									<img src=""""),_display_(/*22.21*/routes/*22.27*/.Assets.at("/img/icon_Sign_In.png")),format.raw/*22.62*/(""""> <b>Sign In</b>
 								</p>
 								<span>Existing users log in here...</span>
 							</a>
@@ -57,7 +58,7 @@ Seq[Any](format.raw/*1.78*/("""
 						<div class="col-sm-4 margbot30">
 							<a class="services_item" href="/reset/ask">
 								<p>
-									<img src=""""),_display_(/*29.21*/routes/*29.27*/.Assets.at("/img/icon_Forgot_Password.png")),format.raw/*29.70*/(""""> <b>Forgot Password?</b>
+									<img src=""""),_display_(/*30.21*/routes/*30.27*/.Assets.at("/img/icon_Forgot_Password.png")),format.raw/*30.70*/(""""> <b>Forgot Password?</b>
 								</p>
 								<span>Reset your password...</span>
 							</a>
@@ -87,11 +88,11 @@ Seq[Any](format.raw/*1.78*/("""
 object index extends index_Scope0.index
               /*
                   -- GENERATED --
-                  DATE: Wed Feb 01 09:15:07 MST 2017
+                  DATE: Wed Feb 01 09:41:45 MST 2017
                   SOURCE: C:/WebDev/workspace/RookieCards/app/views/index.scala.html
-                  HASH: 0b041e4c7f7c1b9513c2b6498dc93af85de7311f
-                  MATRIX: 789->1|960->77|988->80|1006->90|1045->92|1073->94|1451->445|1466->451|1523->487|1782->719|1797->725|1853->760|2109->989|2124->995|2188->1038
-                  LINES: 27->1|32->1|34->3|34->3|34->3|35->4|44->13|44->13|44->13|52->21|52->21|52->21|60->29|60->29|60->29
+                  HASH: e9d1b57fd90362df01e0eb9f6dc2ab379225ee41
+                  MATRIX: 789->1|960->77|988->80|1006->90|1045->92|1073->94|1464->458|1479->464|1536->500|1795->732|1810->738|1866->773|2122->1002|2137->1008|2201->1051
+                  LINES: 27->1|32->1|34->3|34->3|34->3|35->4|45->14|45->14|45->14|53->22|53->22|53->22|61->30|61->30|61->30
                   -- GENERATED --
               */
           
