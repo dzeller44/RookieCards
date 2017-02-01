@@ -70,7 +70,7 @@ Seq[Any](_display_(/*1.2*/main(null)/*1.12*/ {_display_(Seq[Any](format.raw/*1.1
 object genericsuccess extends genericsuccess_Scope0.genericsuccess
               /*
                   -- GENERATED --
-                  DATE: Tue Jan 31 12:33:21 MST 2017
+                  DATE: Wed Feb 01 08:35:05 MST 2017
                   SOURCE: C:/WebDev/workspace/RookieCards/app/views/genericsuccess.scala.html
                   HASH: 34e96d0da7f01b7d000b5f1e584148bb0d5e177d
                   MATRIX: 845->1|863->11|902->13|932->17|1457->515|1496->533

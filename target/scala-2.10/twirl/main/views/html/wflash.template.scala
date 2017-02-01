@@ -53,7 +53,7 @@ Seq[Any](_display_(/*2.2*/flash/*2.7*/.map/*2.11*/ {/*3.5*/case (key, value) =>/
 object wflash extends wflash_Scope0.wflash
               /*
                   -- GENERATED --
-                  DATE: Tue Jan 31 12:33:21 MST 2017
+                  DATE: Wed Feb 01 08:35:05 MST 2017
                   SOURCE: C:/WebDev/workspace/RookieCards/app/views/wflash.scala.html
                   HASH: 803994e36efb5007711431f890ae9a1510297e34
                   MATRIX: 829->2|841->7|853->11|862->18|890->38|929->40|964->49|1041->100|1064->103|1093->106|1118->111

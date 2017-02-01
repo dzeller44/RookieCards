@@ -44,7 +44,7 @@ Seq[Any](format.raw/*1.14*/("""
 				<label class="title">Player Name:</label>
 				<div class="item-cont">
 					<input class="large" type="email" name="email" readonly style="color: #a9a9a9;" 
-						placeholder="Player Name" value="""),_display_(/*16.40*/card/*16.44*/.name),format.raw/*16.49*/(""" """),format.raw/*16.50*/("""/><span class="icon-place"></span>
+						placeholder="Player Name" value=""""),_display_(/*16.41*/card/*16.45*/.name),format.raw/*16.50*/("""" /><span class="icon-place"></span>
 				</div>
 			</div>
 			<div class="element-input">
@@ -79,11 +79,11 @@ Seq[Any](format.raw/*1.14*/("""
 object deletecardconfirm extends deletecardconfirm_Scope0.deletecardconfirm
               /*
                   -- GENERATED --
-                  DATE: Tue Jan 31 12:33:21 MST 2017
+                  DATE: Wed Feb 01 08:35:06 MST 2017
                   SOURCE: C:/WebDev/workspace/RookieCards/app/views/card/deletecardconfirm.scala.html
-                  HASH: 6c15051ed9c673eafa4ee39d8c1bc74159e94687
-                  MATRIX: 772->1|879->13|909->18|927->28|966->30|995->33|1636->647|1649->651|1675->656|1704->657|1898->824|1911->828|1937->833|1966->834|2253->1094|2292->1112|2439->1229
-                  LINES: 27->1|32->1|34->3|34->3|34->3|35->4|47->16|47->16|47->16|47->16|51->20|51->20|51->20|51->20|55->24|55->24|61->30
+                  HASH: 1954314d4aff86d880cbfd7e066466d10727d176
+                  MATRIX: 772->1|879->13|909->18|927->28|966->30|995->33|1637->648|1650->652|1676->657|1872->826|1885->830|1911->835|1940->836|2227->1096|2266->1114|2413->1231
+                  LINES: 27->1|32->1|34->3|34->3|34->3|35->4|47->16|47->16|47->16|51->20|51->20|51->20|51->20|55->24|55->24|61->30
                   -- GENERATED --
               */
           

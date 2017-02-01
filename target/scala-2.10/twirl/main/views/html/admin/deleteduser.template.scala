@@ -69,7 +69,7 @@ Seq[Any](_display_(/*1.2*/main()/*1.8*/ {_display_(Seq[Any](format.raw/*1.10*/("
 object deleteduser extends deleteduser_Scope0.deleteduser
               /*
                   -- GENERATED --
-                  DATE: Tue Jan 31 12:33:21 MST 2017
+                  DATE: Wed Feb 01 08:35:06 MST 2017
                   SOURCE: C:/WebDev/workspace/RookieCards/app/views/admin/deleteduser.scala.html
                   HASH: 5d57335ddc307baf5878158df9970036f9ac6c51
                   MATRIX: 845->1|858->7|897->9|926->12|1355->414|1408->446

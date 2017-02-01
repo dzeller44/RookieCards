@@ -32,17 +32,41 @@ class index extends BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,Forma
 Seq[Any](format.raw/*1.78*/("""
 
 """),_display_(/*3.2*/main(null)/*3.12*/ {_display_(Seq[Any](format.raw/*3.14*/("""
-	"""),format.raw/*4.2*/("""<section id="homePage">
-			<div class="container">
-				<h2><b>Welcome to Dan's Rookie Cards</h2>
-				<div class="testimonials" data-appear-top-offset="-200" data-animated="fadeInUp">
-						<div class="item">
-							<div class="testim_content">Your One-Stop-Shop for your Baseball Card Needs!</div>
-							<div class="testim_content">Please sign in to begin your experience!</div>
+	"""),format.raw/*4.2*/("""<section id="indexPage">
+		<div class="container">
+			<h2><b>Welcome to Dan's Rookie Cards</h2>
+			<div class="testimonials" data-appear-top-offset="-200" data-animated="fadeInUp">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-4 margbot30">
+							<a class="services_item" href="/signup">
+								<p>
+									<img src=""""),_display_(/*13.21*/routes/*13.27*/.Assets.at("/img/icon_Add_User.png")),format.raw/*13.63*/(""""> <b>Create New Account</b>
+								</p>
+								<span>Register for an account...</span>
+							</a>
 						</div>
+						<div class="col-sm-4 margbot30">
+							<a class="services_item" href="/auth">
+								<p>
+									<img src=""""),_display_(/*21.21*/routes/*21.27*/.Assets.at("/img/icon_Sign_In.png")),format.raw/*21.62*/(""""> <b>Sign In</b>
+								</p>
+								<span>Existing users log in here...</span>
+							</a>
+						</div>
+						<div class="col-sm-4 margbot30">
+							<a class="services_item" href="/reset/ask">
+								<p>
+									<img src=""""),_display_(/*29.21*/routes/*29.27*/.Assets.at("/img/icon_Forgot_Password.png")),format.raw/*29.70*/(""""> <b>Forgot Password?</b>
+								</p>
+								<span>Reset your password...</span>
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
-		</section>
+		</div>
+	</section>
 """)))}))
       }
     }
@@ -63,11 +87,11 @@ Seq[Any](format.raw/*1.78*/("""
 object index extends index_Scope0.index
               /*
                   -- GENERATED --
-                  DATE: Tue Jan 31 12:33:21 MST 2017
+                  DATE: Wed Feb 01 09:15:07 MST 2017
                   SOURCE: C:/WebDev/workspace/RookieCards/app/views/index.scala.html
-                  HASH: ca67e0936b64f2b0b59b13ab09d75c03bf4433c4
-                  MATRIX: 789->1|960->77|988->80|1006->90|1045->92|1073->94
-                  LINES: 27->1|32->1|34->3|34->3|34->3|35->4
+                  HASH: 0b041e4c7f7c1b9513c2b6498dc93af85de7311f
+                  MATRIX: 789->1|960->77|988->80|1006->90|1045->92|1073->94|1451->445|1466->451|1523->487|1782->719|1797->725|1853->760|2109->989|2124->995|2188->1038
+                  LINES: 27->1|32->1|34->3|34->3|34->3|35->4|44->13|44->13|44->13|52->21|52->21|52->21|60->29|60->29|60->29
                   -- GENERATED --
               */
           

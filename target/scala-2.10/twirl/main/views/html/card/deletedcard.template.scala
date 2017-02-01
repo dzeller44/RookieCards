@@ -66,7 +66,7 @@ Seq[Any](_display_(/*1.2*/main()/*1.8*/ {_display_(Seq[Any](format.raw/*1.10*/("
 object deletedcard extends deletedcard_Scope0.deletedcard
               /*
                   -- GENERATED --
-                  DATE: Tue Jan 31 12:33:21 MST 2017
+                  DATE: Wed Feb 01 08:35:06 MST 2017
                   SOURCE: C:/WebDev/workspace/RookieCards/app/views/card/deletedcard.scala.html
                   HASH: 5f04b344ecd246b4f70bf490e8e672303ff06fa4
                   MATRIX: 844->1|857->7|896->9|924->11|1329->390|1378->419
